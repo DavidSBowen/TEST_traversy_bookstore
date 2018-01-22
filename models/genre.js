@@ -29,5 +29,11 @@ module.exports.updateGenre = (id, genre, options, cb) => {
     var update = {
         name: genre.name
     }
-    Genre.findOneAndUpdate(query, update, options);
+    Genre.findOneAndUpdate(query, update, options, cb);
+};
+
+// Delete a genre
+module.exports.deleteGenre = (id, cb) => {
+    var query = {_id:id};
+    Genre.remove(query, cb);
 };

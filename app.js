@@ -24,14 +24,6 @@ app.get('/', (req, res) => {
 
 app.get('/api/genres', (req, res) => {
 
-    // Console log every key/value of req
-    // Only for testing/curiosity
-    // for (const i of Object.keys(req)) {
-    //     if (req.hasOwnProperty(i)) {
-    //         console.log(i, req[i]);
-    //     }
-    // }
-
     Genre.getGenres((err, genres) => {
         if (err) {
             throw (err);
@@ -53,14 +45,25 @@ app.post('/api/genres', (req, res) => {
     });
 });
 
-app.put('/api/genres/:id', (req, res) => {
-
+app.put('/api/genres/:_id', (req, res) => {
+    var id = req.params._id;
     var genre = req.body;
-    Genre.addGenre(genre, (err, genre) => {
+    Genre.updateGenre(id, genre, {}, (err, gen) => {
         if (err) {
             throw (err);
         } else {
-            res.json(genre);
+            res.json(gen);
+        }
+    });
+});
+
+app.delete('/api/genres/:_id', (req, res) => {
+    var id = req.params._id;
+    Genre.deleteGenre(id, (err, g) => {
+        if (err) {
+            throw (err);
+        } else {
+            res.json(g);
         }
     });
 });
@@ -97,6 +100,37 @@ app.post('/api/books', (req, res) => {
     });
 });
 
+app.put('/api/books/:_id', (req, res) => {
+    var id = req.params._id;
+    var book = req.body;
+    Book.updateBook(id, book, {}, (err, b) => {
+        if (err) {
+            throw (err);
+        } else {
+            res.json(b);
+        }
+    });
+});
+
+app.delete('/api/books/:_id', (req, res) => {
+    var id = req.params._id;
+    Book.deleteBook(id, (err, b) => {
+        if (err) {
+            throw (err);
+        } else {
+            res.json(b);
+        }
+    });
+});
+
 app.listen(3000);
 
 console.log(`App listening on port 3000`);
+
+    // Console log every key/value of req
+    // Only for testing/curiosity
+    // for (const i of Object.keys(req)) {
+    //     if (req.hasOwnProperty(i)) {
+    //         console.log(i, req[i]);
+    //     }
+    // }
