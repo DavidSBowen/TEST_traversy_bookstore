@@ -1,0 +1,49 @@
+<a href="#/books" class="btn btn-info mt-3 ml-3">Back to Home</a>
+
+<div class="container pb-5">
+    <h1 class="jumbotron text-center mt-4" id="bookTitle">Add Book</h1>
+    <div class="card">
+        <div class="container-fluid content-row py-3">
+            <div class="col">
+                <form ng-submit="addBook()">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" ng-model="book.title" placeholder="Title">
+                    </div>
+                    <div class="form-group" ng-init="fillGenres()">
+                        <label>Genre</label>
+                        <select class="form-control" ng-model="book.genre">
+                            <option ng-repeat="genre in genres" value="{{genre.name}}">{{genre.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" ng-model="book.author" placeholder="Author">
+                    </div>
+                    <div class="form-group">
+                        <label>Publisher</label>
+                        <input type="text" class="form-control" ng-model="book.publisher" placeholder="Publisher">
+                    </div>
+                    <div class="form-group">
+                        <label>Pages</label>
+                        <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" ng-model="book.description" rows="3" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" class="form-control" ng-model="book.image_url" placeholder="Image URL">
+                    </div>
+                    <div class="form-group">
+                        <label>Buy URL</label>
+                        <input type="text" class="form-control" ng-model="book.buy_url" placeholder="Buy URL">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <!-- <a target="_blank" ng-href="{{book.buy_url}}" class="btn btn-primary my-2">Buy on Amazon</a> -->
+        </div>
+    </div>
+</div>

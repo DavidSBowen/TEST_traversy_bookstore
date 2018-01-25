@@ -17,7 +17,8 @@ var BookSchema = mongoose.Schema({
 });
 
 // Set variable for exports
-var Book = module.exports = mongoose.model('book', BookSchema);
+module.exports = mongoose.model('book', BookSchema);
+var Book = module.exports
 
 // Get books
 module.exports.getBooks = (cb, limit) => {

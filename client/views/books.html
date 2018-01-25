@@ -1,27 +1,21 @@
-<h1 class="jumbotron text-center">Books</h1>
+<h1 class="jumbotron text-center mt-5" ng-init="getBooks()">Books</h1>
 <div class="container">
-    <div class="card-deck" ng-init="getBooks()">
-
-        <!-- <div class="card-body"> -->
-        <!-- <div class="row"> -->
-        <!-- <h5 class="card-title">Special title treatment</h5> -->
-        <div class="container-fluid content-row">
+    <div class="card-deck">
+        <div class="container-fluid content-row px-1">
             <div ng-repeat="book in books">
-                <div class="card">
+                <div class="card my-4 mx-0">
                     <div class="row">
-                        <div class="col">
+                        <div class="col pr-0">
                             <h3 class="card-header">{{book.title}}</h3>
                             <p class="card-text mx-3 mt-4">{{book.description}}</p>
-                            <a href="#/books/details/{{book._id}}" class="btn btn-primary mx-3">View Details</a>
+                            <a href="#!/books/details/{{book._id}}" class="btn btn-primary mx-3 my-2">View Details</a>
                         </div>
-                        <div class="col">
+                        <div class="col-auto pl-0">
                             <img class="img-thumbnail" ng-src="{{book.image_url}}" alt="{{book.title}}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- </div> -->
-        <!-- </div> -->
     </div>
 </div>

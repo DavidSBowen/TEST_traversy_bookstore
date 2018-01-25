@@ -11,7 +11,8 @@ var GenreSchema = mongoose.Schema({
     }
 });
 
-var Genre = module.exports = mongoose.model('genre', GenreSchema);
+module.exports = mongoose.model('genre', GenreSchema);
+var Genre = module.exports;
 
 // Get Genres
 module.exports.getGenres = (cb, limit) => {
